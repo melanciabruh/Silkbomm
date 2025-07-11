@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos os Cursos - SilkBoom</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>SilkBoom</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="login.html">Login</a>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </header>
+    <main>
+        <section class="introducao">
+            <p>Explore todos os nossos cursos disponíveis e comece a aprender hoje mesmo!</p>
+        </section>
+        <section class="filtros">
+            <input type="text" id="buscaInput" placeholder="Buscar cursos..." />
+            <select id="filtroCategoria">
+                <option value="">Todas as Categorias</option>
+                <option value="Programação">Programação</option>
+                <option value="Culinária">Culinária</option>
+                <option value="Criatividade">Criatividade</option>
+                <option value="Produtividade">Produtividade</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+        </section>
+        <section>
+            <h2>Todos os Cursos</h2>
+            <div id="cursos-container"></div>
+        </section>
+    </main>
+    <script src="cursos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

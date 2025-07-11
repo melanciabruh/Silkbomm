@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso - SilkBoom</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>SilkBoom</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="login.html">Login</a>
+            <button id="darkModeToggle">🌙</button>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 id="cursoTitulo">Carregando...</h2>
+            <p id="cursoDescricao"></p>
+            <p><strong>Categoria:</strong> <span id="cursoCategoria"></span></p>
+        </section>
+    </main>
+    <script src="cursos.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("curso");
+        const curso = cursos.find(c => c.slug === slug);
+        if (curso) {
+            document.getElementById("cursoTitulo").textContent = curso.titulo;
+            document.getElementById("cursoDescricao").textContent = curso.descricao;
+            document.getElementById("cursoCategoria").textContent = curso.categoria;
+        } else {
+            document.querySelector("main").innerHTML = "<p>Curso não encontrado.</p>";
+        }
+    </script>
+</body>
+</html>
