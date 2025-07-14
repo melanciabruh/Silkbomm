@@ -42,6 +42,29 @@
       <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4-oaV9mEg98cdDLfsFmYpgxaahhhNn7g",
+      authDomain: "silkboom-peixe.firebaseapp.com",
+      projectId: "silkboom-peixe",
+      storageBucket: "silkboom-peixe.firebasestorage.app",
+      messagingSenderId: "850138379235",
+      appId: "1:850138379235:web:ce3cff8089bfc73d5be6d6",
+      measurementId: "G-ZZEVMPNYRG"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');

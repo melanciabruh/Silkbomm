@@ -1,5 +1,24 @@
+// Ativar modo escuro se estiver salvo
+function aplicarModoEscuroSalvo() {
+    if (localStorage.getItem("modoEscuro") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+}
+
+// Adiciona evento ao botão de modo escuro se ele existir
+function ativarBotaoModoEscuro() {
+    const toggle = document.getElementById("darkModeToggle");
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
+        });
+    }
+}
+
+// Renderiza os cursos de acordo com filtros
 function carregarCursos(opcao = "todos", categoria = "", busca = "") {
-    const container = document.getElementById('cursos-container');
+    const container = document.getElementById("cursos-container");
     if (!container) return;
 
     container.innerHTML = "";
@@ -19,7 +38,7 @@ function carregarCursos(opcao = "todos", categoria = "", busca = "") {
     cursosFiltrados.forEach(curso => {
         const card = document.createElement('a');
         card.classList.add('card');
-        card.href = `curso.html?curso=${curso.slug}`;
+        card.href = curso.link;
         card.innerHTML = `
             <h3 class="titulocard">${curso.titulo}</h3>
             <p class="descricaocard">${curso.descricao}</p>
@@ -28,29 +47,7 @@ function carregarCursos(opcao = "todos", categoria = "", busca = "") {
     });
 }
 
-const toggle = document.getElementById('darkModeToggle');
-toggle?.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('modoEscuro', document.body.classList.contains('dark-mode'));
-});
-
-window.addEventListener('load', () => {
-    if (localStorage.getItem('modoEscuro') === 'true') {
-        document.body.classList.add('dark-mode');
-    }
-
-    const container = document.getElementById('cursos-container');
-    if (container) {
-        const pagina = window.location.pathname;
-        if (pagina.includes("index")) {
-            carregarCursos("destaques");
-        } else {
-            carregarCursos("todos");
-            configurarFiltros();
-        }
-    }
-});
-
+// Eventos de busca e filtro
 function configurarFiltros() {
     const buscaInput = document.getElementById("buscaInput");
     const filtroSelect = document.getElementById("filtroCategoria");
@@ -63,3 +60,26 @@ function configurarFiltros() {
         carregarCursos("todos", filtroSelect.value, buscaInput.value);
     });
 }
+
+// Ao carregar a página
+window.addEventListener("DOMContentLoaded", () => {
+    aplicarModoEscuroSalvo();
+    ativarBotaoModoEscuro();
+
+    const container = document.getElementById("cursos-container");
+    if (container) {
+        const pagina = window.location.pathname;
+        if (pagina.includes("index")) {
+            carregarCursos("destaques");
+        } else {
+            carregarCursos("todos");
+            configurarFiltros();
+        }
+    }
+});
+
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);

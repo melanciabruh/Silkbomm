@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todos os Cursos - SilkBoom</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML e CSS para Iniciantes - SilkBoom</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,29 +12,28 @@
         <nav>
             <a href="index.html">Início</a>
             <a href="cursos.html">Cursos</a>
-            <a href="cadastro.html">Cadastro</a>
+            <a href="login.html">Login</a>
             <button id="darkModeToggle">🌙</button>
         </nav>
     </header>
+
     <main>
-        <section class="introducao">
-            <p>Explore todos os nossos cursos disponíveis e comece a aprender hoje mesmo!</p>
-        </section>
-        <section class="filtros">
-            <input type="text" id="buscaInput" placeholder="Buscar cursos..." />
-            <select id="filtroCategoria">
-                <option value="">Todas as Categorias</option>
-                <option value="Programação">Programação</option>
-                <option value="Culinária">Culinária</option>
-                <option value="Criatividade">Criatividade</option>
-                <option value="Produtividade">Produtividade</option>
-                <option value="Marketing">Marketing</option>
-            </select>
-        </section>
-        <section>
-            <h2>Todos os Cursos</h2>
-            <div id="cursos-container"></div>
-        </section>
+        <h2>HTML e CSS para Iniciantes</h2>
+        <p>Este curso foi criado para quem está começando do zero na criação de sites.</p>
+
+        <h3>O que você vai aprender:</h3>
+        <ul>
+            <li>Como funciona a estrutura de um site</li>
+            <li>Como usar HTML para marcar seu conteúdo</li>
+            <li>Como usar CSS para estilizar páginas</li>
+            <li>Como criar páginas responsivas</li>
+        </ul>
+
+        <h3>Pré-requisitos:</h3>
+        <p>Nenhum! Esse curso é totalmente iniciante.</p>
+
+        <h3>Início do curso:</h3>
+        <a href="#" class="card" style="display: inline-block;">Começar agora</a>
     </main>
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -59,17 +58,6 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
       </script>
-    <script src="cursos.js"></script>
     <script src="script.js"></script>
-    <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
 </body>
 </html>
