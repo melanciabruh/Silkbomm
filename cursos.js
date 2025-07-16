@@ -48,3 +48,36 @@ const cursos = [
     link: "curso.html?curso=marketing-digital"
   }
 ];
+// Ativar modo escuro se estiver salvo
+function aplicarModoEscuroSalvo() {
+    if (localStorage.getItem("modoEscuro") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+}
+
+// Adiciona evento ao botão de modo escuro se ele existir
+function ativarBotaoModoEscuro() {
+    const toggle = document.getElementById("darkModeToggle");
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
+        });
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    aplicarModoEscuroSalvo();
+    ativarBotaoModoEscuro();
+
+    const container = document.getElementById("cursos-container");
+    if (container) {
+        const pagina = window.location.pathname;
+        if (pagina.includes("index")) {
+            carregarCursos("destaques");
+        } else {
+            carregarCursos("todos");
+            configurarFiltros();
+        }
+    }
+});
