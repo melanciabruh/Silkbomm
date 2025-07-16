@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script>
-    alert("ISSO AINDA NAO FUNCIONA")
-  </script>
+
+  
     <main style="max-width: 400px; margin: 80px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
         <h2 style="margin-bottom: 20px;">Login</h2>
         <form>
@@ -20,6 +19,25 @@
             <button type="submit" style="padding: 10px 20px; background-color: #00d4ff; border: none; color: white; border-radius: 5px; cursor: pointer;">Entrar</button>
         </form>
     </main>
+    <!-- Adicione isso no fim do <body>, depois do formulário -->
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+
+    if (usuarioSalvo && email === usuarioSalvo.email && senha === usuarioSalvo.senha) {
+      localStorage.setItem("logado", "true");
+      alert("Login feito com sucesso!");
+      window.location.href = "index.html";
+    } else {
+      alert("Email ou senha inválidos");
+    }
+  });
+</script>
+
     <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

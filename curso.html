@@ -36,6 +36,18 @@
             document.querySelector("main").innerHTML = "<p>Curso não encontrado.</p>";
         }
     </script>
+    <script>
+        const loginStatus = document.querySelector('nav a[href="cadastro.html"]');
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        const logado = localStorage.getItem("logado") === "true";
+      
+        if (logado && usuario?.nome) {
+          loginStatus.textContent = usuario.nome;
+          loginStatus.href = "#";
+          loginStatus.style.fontWeight = "bold";
+        }
+      </script>
+      
     <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

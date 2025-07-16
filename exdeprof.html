@@ -48,6 +48,18 @@
 
 
     <script src="script.js"></script>
+    <script>
+        const loginStatus = document.querySelector('nav a[href="cadastro.html"]');
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        const logado = localStorage.getItem("logado") === "true";
+      
+        if (logado && usuario?.nome) {
+          loginStatus.textContent = usuario.nome;
+          loginStatus.href = "#";
+          loginStatus.style.fontWeight = "bold";
+        }
+      </script>
+      
 </body>
 
 </html>

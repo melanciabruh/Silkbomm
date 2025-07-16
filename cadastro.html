@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script>
-    alert("ISSO AINDA NAO FUNCIONA")
-  </script>
+
+  
     <main style="max-width: 400px; margin: 80px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
         <h2 style="margin-bottom: 20px;">Criar Conta</h2>
         <form>
@@ -26,6 +25,22 @@
         </form>
         <p style="margin-top: 15px;">Já tem conta? <a href="login.html">Faça login</a></p>
     </main>
+    <!-- Mova este script para o fim do <body> -->
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    const usuario = { nome, email, senha };
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+    alert("Cadastro feito com sucesso!");
+    window.location.href = "login.html";
+  });
+</script>
+
     <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -37,5 +52,6 @@
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
+
 </body>
 </html>

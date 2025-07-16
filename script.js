@@ -1,20 +1,4 @@
-// Ativar modo escuro se estiver salvo
-function aplicarModoEscuroSalvo() {
-    if (localStorage.getItem("modoEscuro") === "true") {
-        document.body.classList.add("dark-mode");
-    }
-}
 
-// Adiciona evento ao botão de modo escuro se ele existir
-function ativarBotaoModoEscuro() {
-    const toggle = document.getElementById("darkModeToggle");
-    if (toggle) {
-        toggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
-        });
-    }
-}
 
 // Renderiza os cursos de acordo com filtros
 function carregarCursos(opcao = "todos", categoria = "", busca = "") {
@@ -61,7 +45,25 @@ function configurarFiltros() {
     });
 }
 
-// Ao carregar a página
+// Ativar modo escuro se estiver salvo
+function aplicarModoEscuroSalvo() {
+    if (localStorage.getItem("modoEscuro") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+    console.log()
+}
+
+// Adiciona evento ao botão de modo escuro se ele existir
+function ativarBotaoModoEscuro() {
+    const toggle = document.getElementById("darkModeToggle");
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("modoEscuro", document.body.classList.contains("dark-mode"));
+        });
+    }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     aplicarModoEscuroSalvo();
     ativarBotaoModoEscuro();
@@ -77,4 +79,3 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-

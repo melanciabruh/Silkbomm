@@ -35,6 +35,18 @@
         <h3>Início do curso:</h3>
         <a href="exdeprof.html" class="card" style="display: inline-block;">Professores</a>
     </main>
+    <script>
+        const loginStatus = document.querySelector('nav a[href="cadastro.html"]');
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        const logado = localStorage.getItem("logado") === "true";
+      
+        if (logado && usuario?.nome) {
+          loginStatus.textContent = usuario.nome;
+          loginStatus.href = "#";
+          loginStatus.style.fontWeight = "bold";
+        }
+      </script>
+      
 
 
     <script src="script.js"></script>
